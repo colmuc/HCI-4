@@ -54,6 +54,7 @@ public class View extends Stage {
         buttonInfo.setOnAction((event)->
                 infoLabel.setText("This is a desktop application that will empirically validate Fitts' Law")
         );
+        //This portion is a slightly modified version of the sample code from class
         buttonMove.setOnAction((event)->{
             final TranslateTransition translate = new TranslateTransition(
                     Duration.millis( 5000 ), shape );
