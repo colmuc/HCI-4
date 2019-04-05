@@ -3,6 +3,9 @@ package program;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
@@ -35,5 +38,12 @@ public class Controller {
         return (event)-> {
             info.setText(model.getInfo());
         };
+    }
+
+    public void mouseClicked(Node shape, double xPos, double yPos){
+
+        model.setWidtth(shape.localToScene(shape.getBoundsInLocal()).getWidth());
+        model.setX(xPos);
+        model.setY(yPos);
     }
 }

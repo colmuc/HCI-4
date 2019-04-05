@@ -56,6 +56,7 @@ public class View extends Stage {
 
         buttonInfo.setOnAction(controller.infoClicked(infoLabel));
         buttonMove.setOnAction(controller.moveClicked(shape));
+        shape.setOnMouseClicked(event->{controller.mouseClicked(shape,event.getSceneX(),event.getSceneY());});
 
         //This portion is a slightly modified version of the sample code from class
 
