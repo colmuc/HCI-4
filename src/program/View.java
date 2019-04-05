@@ -54,23 +54,10 @@ public class View extends Stage {
         Node shape = rectangle();
         LineChart chart = createChart();
 
-        buttonInfo.setOnAction((event)->
-                infoLabel.setText("This is a desktop application that will empirically validate Fitts' Law")
-        );
+        buttonInfo.setOnAction(controller.infoClicked(infoLabel));
+        buttonMove.setOnAction(controller.moveClicked(shape));
+
         //This portion is a slightly modified version of the sample code from class
-        buttonMove.setOnAction((event)->{
-            final TranslateTransition translate = new TranslateTransition(
-                    Duration.millis( 5000 ), shape );
-            translate.byXProperty().set( 400.0 );
-            translate.setAutoReverse( true );
-            translate.setCycleCount( TranslateTransition.INDEFINITE );
-            final RotateTransition rotate = new RotateTransition(
-                    Duration.seconds( 1.0 ), shape );
-            rotate.setByAngle( 360.0 );
-            rotate.setCycleCount( RotateTransition.INDEFINITE );
-            final ParallelTransition pt = new ParallelTransition( translate, rotate );
-            pt.play();
-        });
 
         final Pane pane = new HBox( buttonInfo, buttonMove );
         ((HBox) pane).setSpacing(10);
@@ -95,6 +82,10 @@ public class View extends Stage {
         return chart;
     }
 
+   // private Node createNewShape(){
+
+   //     return shape;
+    //}
 
 
 
