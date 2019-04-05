@@ -42,7 +42,7 @@ public class Controller {
 
     public void mouseClicked(Node shape, double xPos, double yPos){
 
-        model.setWidtth(shape.localToScene(shape.getBoundsInLocal()).getWidth());
+        model.setWidth(shape.localToScene(shape.getBoundsInLocal()).getWidth());
         model.setX(xPos);
         model.setY(yPos);
     }
