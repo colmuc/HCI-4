@@ -8,7 +8,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
-import java.awt.*;
 
 public class Controller {
     private Model model;
