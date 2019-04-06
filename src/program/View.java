@@ -51,19 +51,20 @@ public class View extends Stage {
         Button buttonMove = new Button ("move");
         buttonMove.setPrefSize(100,20);
         Label infoLabel = new Label();
+        Label message =  new Label();
         Node shape = rectangle();
         LineChart chart = createChart();
 
         buttonInfo.setOnAction(controller.infoClicked(infoLabel));
         buttonMove.setOnAction(controller.moveClicked(shape));
-        shape.setOnMouseClicked(event->{controller.mouseClicked(shape,event.getSceneX(),event.getSceneY());});
+        shape.setOnMouseClicked(event->controller.mouseClicked(shape,event.getSceneX(),event.getSceneY(), message));
 
         //This portion is a slightly modified version of the sample code from class
 
         final Pane pane = new HBox( buttonInfo, buttonMove );
         ((HBox) pane).setSpacing(10);
         pane.setPadding( new Insets( 15, 12, 15, 12 ) );
-        VBox box = new VBox(pane, infoLabel, shape, chart);
+        VBox box = new VBox(pane, infoLabel, shape,message, chart);
         box.setSpacing(10);
         return box;
     }
@@ -71,6 +72,14 @@ public class View extends Stage {
     private Node rectangle(){
         Node rectangle = new Rectangle(40,40, Color.CYAN);
         return rectangle;
+    }
+
+    private Node ellipse(){
+        return null;
+    }
+
+    private Node circle(){
+        return null;
     }
 
     private LineChart createChart(){

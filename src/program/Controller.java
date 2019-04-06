@@ -32,6 +32,7 @@ public class Controller {
             rotate.setCycleCount( RotateTransition.INDEFINITE );
             final ParallelTransition pt = new ParallelTransition( translate, rotate );
             pt.play();
+
         };
  }
     public EventHandler infoClicked(Label info) {
@@ -40,10 +41,15 @@ public class Controller {
         };
     }
 
-    public void mouseClicked(Node shape, double xPos, double yPos){
+    public void mouseClicked(Node shape, double xPos, double yPos, Label message){
 
         model.setWidth(shape.localToScene(shape.getBoundsInLocal()).getWidth());
         model.setX(xPos);
         model.setY(yPos);
+        if(model.getCount()<10){
+            model.incrementCount();
+        }else{
+            message.setText(model.getMessage());
+        }
     }
 }
